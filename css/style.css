@@ -81,7 +81,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-sans);
 .services-header-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 80px; align-items: end; }
 .section-title { font-family: var(--font-serif); font-size: clamp(38px, 4vw, 56px); font-weight: 400; line-height: 1.1; color: var(--text); }
 .section-desc { font-size: 15px; line-height: 1.85; color: var(--text-muted); }
-.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 0.5px solid var(--border); }
+.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 0.5px solid var(--border); }
 .service-card { padding: 48px 40px 48px 0; border-right: 0.5px solid var(--border); position: relative; }
 .service-card:last-child { border-right: none; }
 .service-card:not(:first-child) { padding-left: 40px; }
