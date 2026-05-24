@@ -19,7 +19,7 @@
     html { scroll-behavior: smooth; font-size: 16px; }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(17,17,17,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-subtle); }
-    .nav-logo { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 0.04em; color: var(--white); text-decoration: none; }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
     .nav-logo span { color: var(--gold); }
     .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
     .nav-links a { font-size: 13px; font-weight: 400; letter-spacing: 0.04em; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
@@ -58,20 +58,44 @@
       .notify-strip { flex-direction: column; padding: 36px 24px; }
       footer { flex-direction: column; gap: 16px; text-align: center; }
     }
+  
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 101; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(17,17,17,0.98); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 99; padding: 24px 28px; }
+    .nav-mobile ul { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .nav-mobile ul li a { display: block; font-size: 16px; color: var(--text-muted); text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--border-subtle); letter-spacing: 0.04em; transition: color 0.2s; }
+    .nav-mobile ul li:last-child a { border-bottom: none; }
+    .nav-mobile ul li a:hover { color: var(--text); }
+    .nav-mobile-cta { color: var(--gold) !important; font-weight: 500 !important; }
+    .nav-mobile.open { display: block; }
+    @media (max-width: 900px) { .nav-hamburger { display: flex; } }
   </style>
 </head>
 <body>
 
 <nav>
-  <a href="/" class="nav-logo">Arcline <span>Power</span> Advisory</a>
+  <a href="index.html" class="nav-logo"><img src="arcline-logo-chatgpt.png" alt="Arcline Power Advisory" style="height:52px;display:block;" /></a>
   <ul class="nav-links">
-    <li><a href="/services.html">Services</a></li>
-    <li><a href="/experience.html">Experience</a></li>
-    <li><a href="/about.html">About</a></li>
-    <li><a href="/insights.html" class="nav-active">Insights</a></li>
-    <li><a href="/contact.html" class="nav-cta">Work With Us</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="insights.html" class="nav-active">Insights</a></li>
+    <li><a href="contact.html" class="nav-cta">Work With Us</a></li>
   </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
+<div class="nav-mobile" id="nav-mobile">
+  <ul>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="insights.html">Insights</a></li>
+    <li><a href="contact.html" class="nav-mobile-cta">Work With Us</a></li>
+  </ul>
+</div>
 
 <div class="page-header">
   <div class="page-eyebrow">Technical Insights</div>
@@ -108,7 +132,7 @@
       <h3>Get notified when articles publish</h3>
       <p>We'll send a note when new technical content goes live — no newsletters, just the article.</p>
     </div>
-    <a href="/contact.html" class="btn-primary">Get in Touch</a>
+    <a href="contact.html" class="btn-primary">Get in Touch</a>
   </div>
 </section>
 
@@ -121,5 +145,19 @@
   </div>
 </footer>
 
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMobile = document.getElementById('nav-mobile');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navMobile.classList.toggle('open');
+  });
+  navMobile.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navMobile.classList.remove('open');
+    });
+  });
+</script>
 </body>
 </html>

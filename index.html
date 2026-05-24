@@ -10,22 +10,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
       --bg: #111111; --bg-card: #181818; --bg-card2: #1e1e1e;
       --border: #2a2a2a; --border-subtle: #222222;
       --gold: #c9a84c; --gold-light: #dfc278; --gold-dim: rgba(201,168,76,0.15);
       --text: #e8e8e8; --text-muted: #888; --text-dim: #555; --white: #ffffff;
     }
+
     html { scroll-behavior: smooth; font-size: 16px; }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* ── NAV ── */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(17,17,17,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-subtle); }
-    .nav-logo { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 0.04em; color: var(--white); text-decoration: none; }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
     .nav-logo span { color: var(--gold); }
     .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
     .nav-links a { font-size: 13px; font-weight: 400; letter-spacing: 0.04em; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.nav-active { color: var(--text); }
-    .nav-cta { font-size: 13px !important; font-weight: 500 !important; letter-spacing: 0.06em !important; color: var(--bg) !important; background: var(--gold); padding: 8px 20px; border-radius: 3px; text-decoration: none; transition: background 0.2s; }
-    .nav-cta:hover { background: var(--gold-light) !important; color: var(--bg) !important; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: var(--bg) !important; background: var(--gold); padding: 8px 20px; border-radius: 3px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--gold-light) !important; }
+
+    /* ── HERO ── */
     #hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 120px 48px 80px; position: relative; overflow: hidden; background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; background-attachment: fixed; }
     #hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,10,10,0.82) 0%, rgba(10,10,10,0.70) 60%, rgba(17,17,17,1) 100%); pointer-events: none; z-index: 0; }
     #hero > * { position: relative; z-index: 1; }
@@ -44,23 +50,44 @@
     .hero-logos { margin-top: 64px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
     .hero-logos-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-right: 4px; }
     .logo-pill { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; color: var(--text-dim); border: 1px solid var(--border); border-radius: 3px; padding: 5px 12px; }
+
+    /* ── STATS ── */
     .stats-bar { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 0 48px; }
     .stat-item { padding: 32px 40px; border-right: 1px solid var(--border); }
     .stat-item:last-child { border-right: none; }
     .stat-number { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 600; color: var(--gold); line-height: 1; margin-bottom: 6px; }
     .stat-label { font-size: 13px; color: var(--text-muted); letter-spacing: 0.02em; }
+
+    /* ── SECTIONS ── */
     section { padding: 96px 48px; border-bottom: 1px solid var(--border-subtle); }
     .section-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
     .section-headline { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 44px); font-weight: 600; color: var(--white); line-height: 1.15; margin-bottom: 20px; max-width: 640px; }
     .section-sub { font-size: 16px; color: var(--text-muted); max-width: 580px; line-height: 1.7; margin-bottom: 56px; }
+
+    /* ── SERVICES ── */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; border: 1px solid var(--border); }
+    .service-card { background: var(--bg-card); padding: 40px 36px; border-right: 1px solid var(--border); transition: background 0.2s; }
+    .service-card:last-child { border-right: none; }
+    .service-card:hover { background: var(--bg-card2); }
+    .service-num { font-size: 11px; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 20px; font-weight: 500; }
+    .service-title { font-size: 17px; font-weight: 600; color: var(--white); margin-bottom: 14px; line-height: 1.3; }
+    .service-desc { font-size: 14px; color: var(--text-muted); line-height: 1.65; margin-bottom: 20px; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: 11px; font-weight: 500; letter-spacing: 0.05em; color: var(--gold); background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.2); padding: 3px 9px; border-radius: 2px; }
+
+    /* ── WHO WE HELP ── */
     .who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; border: 1px solid var(--border); }
     .who-card { background: var(--bg-card); padding: 36px 32px; transition: background 0.2s; }
     .who-card:hover { background: var(--bg-card2); }
     .who-card-num { font-size: 11px; letter-spacing: 0.12em; color: var(--gold); font-weight: 500; margin-bottom: 16px; }
     .who-card-title { font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 12px; line-height: 1.3; }
     .who-card-desc { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+
+    /* ── IMAGE DIVIDERS ── */
     .img-divider { width: 100%; height: 320px; background-size: cover; background-position: center; background-attachment: fixed; position: relative; }
     .img-divider::before { content: ''; position: absolute; inset: 0; background: rgba(10,10,10,0.55); }
+
+    /* ── ENTRY OFFERS ── */
     .entry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; border: 1px solid var(--border); }
     .entry-card { background: var(--bg-card); padding: 36px 36px; transition: background 0.2s; }
     .entry-card:hover { background: var(--bg-card2); }
@@ -73,6 +100,8 @@
     .entry-scope li::before { content: '—'; color: var(--gold); font-size: 12px; flex-shrink: 0; }
     .entry-deliverable { font-size: 13px; color: var(--text-muted); font-style: italic; }
     .entry-deliverable strong { color: var(--gold); font-style: normal; }
+
+    /* ── ENGAGEMENT MODEL ── */
     .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border: 1px solid var(--border); margin-bottom: 48px; }
     .step-card { background: var(--bg-card); padding: 36px 32px; }
     .step-num { font-size: 11px; letter-spacing: 0.14em; color: var(--gold); font-weight: 500; margin-bottom: 16px; }
@@ -83,6 +112,64 @@
     .engagement-types-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px; }
     .engagement-pills { display: flex; flex-wrap: wrap; gap: 8px; }
     .engagement-pill { font-size: 13px; color: var(--text-muted); border: 1px solid var(--border); padding: 6px 14px; border-radius: 2px; }
+
+    /* ── FOUNDER EXPERIENCE ── */
+    .cases-grid { display: grid; gap: 1px; border: 1px solid var(--border); }
+    .case-card { background: var(--bg-card); padding: 40px 40px; display: grid; grid-template-columns: 1fr 280px; gap: 40px; transition: background 0.2s; }
+    .case-card:hover { background: var(--bg-card2); }
+    .case-meta { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; }
+    .case-type { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+    .case-dot { color: var(--text-dim); }
+    .case-location { font-size: 11px; letter-spacing: 0.06em; color: var(--text-dim); text-transform: uppercase; }
+    .case-title { font-size: 20px; font-weight: 600; color: var(--white); line-height: 1.3; margin-bottom: 14px; }
+    .case-desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+    .case-metrics { display: flex; flex-direction: column; gap: 16px; justify-content: center; }
+    .case-metric { padding: 16px 20px; background: var(--bg); border: 1px solid var(--border); border-radius: 2px; }
+    .case-metric-num { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 600; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+    .case-metric-label { font-size: 12px; color: var(--text-muted); }
+
+    /* ── TEAM ── */
+    .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; border: 1px solid var(--border); }
+    .team-card { background: var(--bg-card); padding: 48px 44px; }
+    .team-avatar { width: 52px; height: 52px; border-radius: 50%; background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.3); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600; color: var(--gold); letter-spacing: 0.04em; margin-bottom: 24px; }
+    .team-name { font-size: 20px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+    .team-role { font-size: 13px; color: var(--gold); font-weight: 500; margin-bottom: 4px; letter-spacing: 0.03em; }
+    .team-employers { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+    .team-bio { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
+    .team-creds { display: flex; flex-direction: column; gap: 6px; }
+    .team-cred { font-size: 12px; color: var(--text-dim); display: flex; align-items: center; gap: 8px; }
+    .team-cred::before { content: '·'; color: var(--gold); }
+
+    /* ── INSIGHTS ── */
+    .insights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; border: 1px solid var(--border); }
+    .insight-card { background: var(--bg-card); padding: 36px 32px; transition: background 0.2s; }
+    .insight-card:hover { background: var(--bg-card2); }
+    .insight-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .insight-title { font-size: 17px; font-weight: 600; color: var(--white); line-height: 1.35; margin-bottom: 12px; }
+    .insight-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+    .insight-meta { font-size: 12px; color: var(--text-dim); margin-bottom: 16px; }
+
+    /* ── CONTACT ── */
+    #contact { display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; }
+    .contact-left { padding: 96px 64px 96px 48px; border-right: 1px solid var(--border); }
+    .contact-right { padding: 96px 48px 96px 64px; background: var(--bg-card); }
+    .contact-info { margin-top: 40px; display: flex; flex-direction: column; gap: 12px; }
+    .contact-item { font-size: 14px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .contact-item:hover { color: var(--gold); }
+    .contact-divider { margin: 32px 0; border: none; border-top: 1px solid var(--border); }
+    .contact-note { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text); font-family: 'Inter', sans-serif; font-size: 14px; padding: 12px 16px; border-radius: 3px; outline: none; transition: border-color 0.2s; -webkit-appearance: none; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
+    .form-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; cursor: pointer; }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-honeypot { display: none; }
+    .form-submit { width: 100%; background: var(--gold); color: var(--bg); font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 14px 24px; border: none; border-radius: 3px; cursor: pointer; transition: background 0.2s; }
+    .form-submit:hover { background: var(--gold-light); }
+
+    /* ── FOOTER ── */
     footer { padding: 32px 48px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); }
     .footer-copy { font-size: 12px; color: var(--text-dim); }
     .footer-links { display: flex; gap: 24px; }
@@ -90,31 +177,66 @@
     .footer-links a:hover { color: var(--gold); }
     .footer-badge { font-size: 11px; color: var(--text-dim); letter-spacing: 0.04em; }
     .footer-badge span { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav { padding: 0 24px; } .nav-links { display: none; }
       #hero { padding: 100px 24px 60px; } section { padding: 64px 24px; }
       .stats-bar { grid-template-columns: 1fr; padding: 0 24px; }
       .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
       .stat-item:last-child { border-bottom: none; }
-      .who-grid, .steps-grid { grid-template-columns: 1fr; }
+      .services-grid, .who-grid, .team-grid, .steps-grid { grid-template-columns: 1fr; }
+      .service-card, .step-card { border-right: none; }
+      .case-card { grid-template-columns: 1fr; }
+      .case-metrics { flex-direction: row; }
       .entry-grid { grid-template-columns: 1fr; }
       .entry-card.featured { grid-column: 1; }
+      #contact { grid-template-columns: 1fr; }
+      .contact-left { padding: 64px 24px; border-right: none; border-bottom: 1px solid var(--border); }
+      .contact-right { padding: 64px 24px; }
+      .form-row { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 16px; text-align: center; }
+      .insights-grid { grid-template-columns: 1fr; }
     }
+  
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 101; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(17,17,17,0.98); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 99; padding: 24px 28px; }
+    .nav-mobile ul { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .nav-mobile ul li a { display: block; font-size: 16px; color: var(--text-muted); text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--border-subtle); letter-spacing: 0.04em; transition: color 0.2s; }
+    .nav-mobile ul li:last-child a { border-bottom: none; }
+    .nav-mobile ul li a:hover { color: var(--text); }
+    .nav-mobile-cta { color: var(--gold) !important; font-weight: 500 !important; }
+    .nav-mobile.open { display: block; }
+    @media (max-width: 900px) { .nav-hamburger { display: flex; } }
   </style>
 </head>
 <body>
 
+<!-- ── NAV ── -->
 <nav>
-  <a href="/" class="nav-logo">Arcline <span>Power</span> Advisory</a>
+  <a href="index.html" class="nav-logo"><img src="arcline-logo-chatgpt.png" alt="Arcline Power Advisory" style="height:52px;display:block;" /></a>
   <ul class="nav-links">
-    <li><a href="/services.html">Services</a></li>
-    <li><a href="/experience.html">Experience</a></li>
-    <li><a href="/about.html">About</a></li>
-    <li><a href="/insights.html">Insights</a></li>
-    <li><a href="/contact.html" class="nav-cta">Work With Us</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="insights.html">Insights</a></li>
+    <li><a href="contact.html" class="nav-cta">Work With Us</a></li>
   </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
+<div class="nav-mobile" id="nav-mobile">
+  <ul>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="insights.html">Insights</a></li>
+    <li><a href="contact.html" class="nav-mobile-cta">Work With Us</a></li>
+  </ul>
+</div>
 
 <!-- ── HERO ── -->
 <section id="hero">
@@ -127,7 +249,7 @@
   </p>
   <div class="hero-badge">Texas is booming. We're built for it.</div>
   <div class="hero-actions">
-    <a href="/contact.html" class="btn-primary">Start a Conversation</a>
+    <a href="#contact" class="btn-primary">Start a Conversation</a>
     <a href="#who" class="btn-ghost">See Who We Help</a>
   </div>
   <div class="hero-logos">
@@ -155,13 +277,64 @@
   </div>
 </div>
 
+<!-- ── SERVICES ── -->
+<section id="services">
+  <div class="section-eyebrow">What We Do</div>
+  <h2 class="section-headline">Specialized Advisory at Every Project Phase</h2>
+  <p class="section-sub">From greenfield design review through live-site commissioning, we provide independent senior technical oversight — drawing on direct operating experience at Meta, AWS, Microsoft, and Black &amp; Veatch. We are not a replacement for your EPC or engineer of record. We are the specialist review layer that catches what generalist teams miss.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-title">Power System Studies &amp; Protection Review</div>
+      <p class="service-desc">Independent QA and execution of arc flash, short-circuit, and coordination studies. Validation of relay settings, arc flash assumptions, and protection configurations against IEEE 1584, NFPA 70E, utility requirements, and owner-specific operating modes.</p>
+      <div class="tag-row">
+        <span class="tag">Arc Flash</span>
+        <span class="tag">IEEE 1584</span>
+        <span class="tag">SKM / ETAP</span>
+        <span class="tag">Relay Coordination</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-title">Commissioning &amp; Operational Readiness Advisory</div>
+      <p class="service-desc">Pre-energization review, commissioning sequencing, and utility coordination for new data center builds and retrofits. Translating design packages into field-executable energization plans — with owner-side judgment on what can go wrong.</p>
+      <div class="tag-row">
+        <span class="tag">Utility Interconnection</span>
+        <span class="tag">Energization Planning</span>
+        <span class="tag">HV/MV Systems</span>
+        <span class="tag">Field QA</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-title">Reliability Engineering &amp; Incident Response</div>
+      <p class="service-desc">Root-cause analysis for electrical incidents, fleet-wide corrective action development, and condition-based maintenance strategy. Converting field failures into systemic improvements that raise uptime across your portfolio.</p>
+      <div class="tag-row">
+        <span class="tag">RCA</span>
+        <span class="tag">PD Trending</span>
+        <span class="tag">Failure Mode Analysis</span>
+        <span class="tag">Standards Development</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-title">AI/GPU Load &amp; Utility Interface Advisory</div>
+      <p class="service-desc">Power system advisory for high-density GPU compute infrastructure — harmonic behavior, protection coordination under variable load, BESS integration, and large-load utility interconnection planning for AI-scale deployments.</p>
+      <div class="tag-row">
+        <span class="tag">GPU Infrastructure</span>
+        <span class="tag">BESS</span>
+        <span class="tag">Harmonics</span>
+        <span class="tag">Large-Load Interconnection</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── WHO WE HELP ── -->
 <section id="who">
   <div class="section-eyebrow">Who We Help</div>
   <h2 class="section-headline">Built for the Firms Delivering AI and Hyperscale Infrastructure</h2>
-  <p class="section-sub">
-    Hyperscalers may be the end-market. They are not always the first client. Arcline serves the broader ecosystem — the firms building, commissioning, financing, and operating hyperscale-grade infrastructure. If your team is exposed when something goes wrong on a high-voltage data center project, we are built for you.
-  </p>
+  <p class="section-sub">Hyperscalers may be the end-market. They are not always the first client. Arcline serves the broader ecosystem — the firms building, commissioning, financing, and operating hyperscale-grade infrastructure. If your team is exposed when something goes wrong on a high-voltage data center project, we are built for you.</p>
   <div class="who-grid">
     <div class="who-card">
       <div class="who-card-num">01</div>
@@ -196,16 +369,14 @@
   </div>
 </section>
 
-<!-- ── IMAGE DIVIDER ── -->
+<!-- ── IMAGE DIVIDER 1 ── -->
 <div class="img-divider" style="background-image: url('https://images.unsplash.com/photo-1548337138-e87d889cc369?auto=format&fit=crop&w=1920&q=80');"></div>
 
 <!-- ── HOW WE ENTER ── -->
 <section id="entry">
   <div class="section-eyebrow">How We Enter a Project</div>
   <h2 class="section-headline">A Clear Starting Point for Every Engagement</h2>
-  <p class="section-sub">
-    Most advisory relationships start with a well-scoped, fixed-fee review. You get a clear deliverable. We get a clear line of sight into your risk. Below are the most common ways teams bring us in.
-  </p>
+  <p class="section-sub">Most advisory relationships start with a well-scoped, fixed-fee review. You get a clear deliverable. We get a clear line of sight into your risk. Below are the most common ways teams bring us in.</p>
   <div class="entry-grid">
     <div class="entry-card featured">
       <div class="entry-badge">Flagship Offer · Fixed Fee</div>
@@ -286,6 +457,189 @@
   </div>
 </section>
 
+<!-- ── FOUNDER EXPERIENCE ── -->
+<section id="work">
+  <div class="section-eyebrow">Founder Experience</div>
+  <h2 class="section-headline">The Work Behind the Firm</h2>
+  <p class="section-sub">Arcline is a new firm. The experience is not. The projects below represent work our founders led in prior roles at Meta, AWS, and Microsoft — the basis for the judgment we bring to every engagement.</p>
+  <div class="cases-grid">
+    <div class="case-card">
+      <div>
+        <div class="case-meta">
+          <span class="case-type">Protection Coordination</span>
+          <span class="case-dot">·</span>
+          <span class="case-location">Pacific Northwest</span>
+        </div>
+        <div class="case-title">345kV Substation Protection Study for 120MW Hyperscale Campus</div>
+        <p class="case-desc">Led end-to-end protection coordination study for a new utility-owned 345kV substation serving a major hyperscale operator's flagship campus. Developed relay settings from transmission level through 34.5kV feeders to MV switchgear and generator protection. Coordinated with the serving utility's protection engineers to validate settings against NERC compliance requirements.</p>
+      </div>
+      <div class="case-metrics">
+        <div class="case-metric"><div class="case-metric-num">Zero</div><div class="case-metric-label">Protection miscoordinations at energization</div></div>
+        <div class="case-metric"><div class="case-metric-num">345kV</div><div class="case-metric-label">Max system voltage coordinated</div></div>
+        <div class="case-metric"><div class="case-metric-num">120MW</div><div class="case-metric-label">Campus load served</div></div>
+      </div>
+    </div>
+    <div class="case-card">
+      <div>
+        <div class="case-meta">
+          <span class="case-type">Commissioning Advisory</span>
+          <span class="case-dot">·</span>
+          <span class="case-location">Northern Virginia</span>
+        </div>
+        <div class="case-title">Live-Site Expansion at 48MW Colocation Retrofit</div>
+        <p class="case-desc">Owner-side technical lead for a major capacity expansion — adding 48MW of critical load without disrupting 200MW of live infrastructure. Identified and resolved a protection gap in the tie-bus configuration that would have caused a site-wide outage during load transfer.</p>
+      </div>
+      <div class="case-metrics">
+        <div class="case-metric"><div class="case-metric-num">Zero</div><div class="case-metric-label">Unplanned outages during expansion</div></div>
+        <div class="case-metric"><div class="case-metric-num">48MW</div><div class="case-metric-label">New critical load energized</div></div>
+        <div class="case-metric"><div class="case-metric-num">200MW</div><div class="case-metric-label">Live infrastructure protected</div></div>
+      </div>
+    </div>
+    <div class="case-card">
+      <div>
+        <div class="case-meta">
+          <span class="case-type">Reliability Engineering</span>
+          <span class="case-dot">·</span>
+          <span class="case-location">Global Fleet</span>
+        </div>
+        <div class="case-title">Fleet-Wide Arc Flash &amp; Reliability Program — 18 Campuses</div>
+        <p class="case-desc">Developed and led a fleet-wide arc flash and reliability program across 18 data center campuses globally. Established a condition-based maintenance program driven by PD trending data, reducing arc flash incident energy exposure through targeted relay setting adjustments and a unified fleet standard.</p>
+      </div>
+      <div class="case-metrics">
+        <div class="case-metric"><div class="case-metric-num">18</div><div class="case-metric-label">Campuses covered globally</div></div>
+        <div class="case-metric"><div class="case-metric-num">34%</div><div class="case-metric-label">Avg. incident energy reduction</div></div>
+        <div class="case-metric"><div class="case-metric-num">1</div><div class="case-metric-label">Unified fleet standard created</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── IMAGE DIVIDER 2 ── -->
+<div class="img-divider" style="background-image: url('https://images.pexels.com/photos/17842834/pexels-photo-17842834.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="section-eyebrow">Our Team</div>
+  <h2 class="section-headline">Two Texas-Licensed PEs.<br />Thirty Years at Hyperscale.</h2>
+  <p class="section-sub">Arcline was founded by two Professional Engineers licensed in Texas — with direct operating experience inside the world's most demanding data center environments. We don't advise from the outside. We've been in the operations chair.</p>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">BG</div>
+      <div class="team-name">Bruke Gebryes, P.E.</div>
+      <div class="team-role">Managing Partner</div>
+      <div class="team-employers">Meta · Amazon Web Services · Mott MacDonald</div>
+      <p class="team-bio">12+ years spanning utility-scale substations and global hyperscale data center deployments. Owned protection coordination from 345kV substations down to MCC-level equipment, commissioned 100MW+ campuses, and developed fleet-wide reliability standards at Meta and AWS. Deep background in arc flash analysis, relay setting development, and live-site operational risk.</p>
+      <div class="team-creds">
+        <div class="team-cred">Professional Engineer (P.E.) — Texas</div>
+        <div class="team-cred">M.Eng, Electrical Engineering — WPI</div>
+        <div class="team-cred">SKM PowerTools, ETAP, MATLAB</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">CP</div>
+      <div class="team-name">Chirag S. Parikh, P.E.</div>
+      <div class="team-role">Partner, Technical Lead</div>
+      <div class="team-employers">Microsoft · Amazon Web Services · Black &amp; Veatch</div>
+      <p class="team-bio">18+ years across hyperscale data centers, utility substations, and EPC delivery. Led power harvesting analysis across hundreds of colocation data centers at Microsoft, delivered 100+ data center projects at AWS, and designed protection systems for 30+ utility substations up to 345kV at Black &amp; Veatch. Extensive background in large-program coordination studies and commissioning.</p>
+      <div class="team-creds">
+        <div class="team-cred">Professional Engineer (P.E.) — Texas</div>
+        <div class="team-cred">M.S. Electrical Engineering — UMKC</div>
+        <div class="team-cred">ETAP, SKM PowerTools</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── INSIGHTS ── -->
+<section id="insights">
+  <div class="section-eyebrow">Technical Insights</div>
+  <h2 class="section-headline">From the Field</h2>
+  <p class="section-sub" style="margin-bottom: 40px;">Practical perspectives on protection, commissioning, and reliability — written for the teams doing the work.</p>
+  <div class="insights-grid">
+    <div class="insight-card">
+      <div class="insight-tag">Protection Coordination</div>
+      <div class="insight-title">The Three Arc Flash Study Mistakes We See on Every Data Center Project</div>
+      <p class="insight-desc">Most arc flash studies get done — but most get done wrong for hyperscale environments. Here are the three most common errors and why they matter when your systems are live.</p>
+      <div class="insight-meta">8 min read · Protection &amp; Safety</div>
+      <span style="font-size: 12px; font-weight: 500; color: var(--text-dim); letter-spacing: 0.06em; text-transform: uppercase;">Coming soon</span>
+    </div>
+    <div class="insight-card">
+      <div class="insight-tag">Commissioning</div>
+      <div class="insight-title">Why Protection Coordination Fails at 345kV Utility Interconnections</div>
+      <p class="insight-desc">The interface between your campus protection scheme and the utility's transmission system is where most large-scale failures originate. The coordination gaps EPCs consistently miss.</p>
+      <div class="insight-meta">12 min read · High Voltage Systems</div>
+      <span style="font-size: 12px; font-weight: 500; color: var(--text-dim); letter-spacing: 0.06em; text-transform: uppercase;">Coming soon</span>
+    </div>
+    <div class="insight-card">
+      <div class="insight-tag">Reliability</div>
+      <div class="insight-title">Building a Fleet-Wide Reliability Program That Actually Sticks</div>
+      <p class="insight-desc">Most reliability programs die after the first audit. This is how we've structured condition-based maintenance and PD trending programs that outlast the engagement.</p>
+      <div class="insight-meta">10 min read · Reliability Engineering</div>
+      <span style="font-size: 12px; font-weight: 500; color: var(--text-dim); letter-spacing: 0.06em; text-transform: uppercase;">Coming soon</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── CAPABILITY STATEMENT ── -->
+<section id="capability-statement" style="background: #0a0a0a; border-top: 1px solid #2a2a2a; border-bottom: 1px solid #2a2a2a; padding: 64px 48px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;">
+  <div>
+    <div class="section-eyebrow" style="margin-bottom: 12px;">Capability Statement</div>
+    <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--white); margin-bottom: 12px;">One page. Everything you need to onboard us.</h2>
+    <p style="color: var(--text-muted); font-size: 15px; max-width: 540px;">Arcline supports EPCs, colocation operators, utilities, commissioning firms, and infrastructure teams delivering AI and hyperscale-grade power infrastructure. Download and attach to supplier onboarding, RFQ responses, or vendor registration packets.</p>
+  </div>
+  <a href="/Arcline_Power_Advisory_Capability_Statement.pdf" download style="display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: #111; font-weight: 600; font-size: 14px; letter-spacing: 0.04em; padding: 14px 28px; text-decoration: none; white-space: nowrap; flex-shrink: 0;">
+    ↓ Download Capability Statement
+  </a>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="contact-left">
+    <div class="section-eyebrow">Contact</div>
+    <h2 class="section-headline">Let's Talk About Your Project</h2>
+    <p class="section-sub" style="margin-bottom: 0;">Whether you're commissioning a new campus, need an independent protection review, or want a technical second opinion before energization — we're available for project-based engagements.</p>
+    <div class="contact-info">
+      <a href="mailto:bruke@arclinepoweradvisory.com" class="contact-item">bruke@arclinepoweradvisory.com</a>
+    </div>
+    <hr class="contact-divider" />
+    <p class="contact-note">Arcline Power Advisory LLC is a Texas-licensed, minority-owned power systems advisory firm. We serve EPCs, colocation operators, utilities, commissioning firms, and infrastructure investors delivering AI and hyperscale data center infrastructure across Texas, the DMV, and national markets.</p>
+    <div style="margin-top: 24px; display: flex; gap: 20px;">
+      <a href="https://linkedin.com" class="contact-item">LinkedIn →</a>
+      <a href="mailto:bruke@arclinepoweradvisory.com" class="contact-item">Send Email →</a>
+    </div>
+  </div>
+  <div class="contact-right">
+    <form name="contact" id="contact-form" method="POST" action="/success.html" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact" />
+      <div class="form-honeypot"><label>Don't fill this out: <input name="bot-field" /></label></div>
+      <div class="form-row">
+        <div class="form-group"><label for="name">Name *</label><input type="text" id="name" name="name" required /></div>
+        <div class="form-group"><label for="email">Email *</label><input type="email" id="email" name="email" required /></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label for="company">Company</label><input type="text" id="company" name="company" /></div>
+        <div class="form-group"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" /></div>
+      </div>
+      <div class="form-group">
+        <label for="service">How Can We Help?</label>
+        <select id="service" name="service">
+          <option value="">Select an engagement type</option>
+          <option value="independent-review">Independent Power Systems Review (Fixed-Fee)</option>
+          <option value="arc-flash-qc">Arc Flash / Protection QA</option>
+          <option value="commissioning-readiness">Commissioning Readiness Review</option>
+          <option value="utility-interconnection">Utility Interconnection / Large-Load Review</option>
+          <option value="reliability-incident">Reliability / Incident Response</option>
+          <option value="owners-engineer">Owner's Engineer / Technical Due Diligence</option>
+          <option value="other">Other / General Inquiry</option>
+        </select>
+      </div>
+      <div class="form-group"><label for="message">Message *</label><textarea id="message" name="message" required placeholder="Tell us about your project, timeline, and what you need from us."></textarea></div>
+      <button type="submit" class="form-submit">Submit Inquiry</button>
+    </form>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
 <footer>
   <div class="footer-copy">© 2026 · Arcline Power Advisory LLC · All rights reserved</div>
   <div class="footer-badge">Texas Licensed · <span>Minority-Owned</span></div>
@@ -295,5 +649,35 @@
   </div>
 </footer>
 
+<script>
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.style.color = '';
+          if (link.getAttribute('href') === '#' + entry.target.id) link.style.color = 'var(--text)';
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMobile = document.getElementById('nav-mobile');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navMobile.classList.toggle('open');
+  });
+  navMobile.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navMobile.classList.remove('open');
+    });
+  });
+</script>
 </body>
 </html>
