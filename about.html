@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Arcline Power Advisory</title>
+  <meta name="description" content="Two Texas-licensed PEs with 30+ years at Meta, AWS, Microsoft, and Black & Veatch. Arcline Power Advisory brings hyperscale operating experience to every engagement." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #111111; --bg-card: #181818; --bg-card2: #1e1e1e;
+      --border: #2a2a2a; --border-subtle: #222222;
+      --gold: #c9a84c; --gold-light: #dfc278; --gold-dim: rgba(201,168,76,0.15);
+      --text: #e8e8e8; --text-muted: #888; --text-dim: #555; --white: #ffffff;
+    }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(17,17,17,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-subtle); }
+    .nav-logo { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 0.04em; color: var(--white); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 13px; font-weight: 400; letter-spacing: 0.04em; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.nav-active { color: var(--text); }
+    .nav-cta { font-size: 13px !important; font-weight: 500 !important; letter-spacing: 0.06em !important; color: var(--bg) !important; background: var(--gold); padding: 8px 20px; border-radius: 3px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--gold-light) !important; color: var(--bg) !important; }
+    .page-header { padding: 140px 48px 80px; border-bottom: 1px solid var(--border-subtle); }
+    .page-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .page-headline { font-family: 'Playfair Display', serif; font-size: clamp(36px, 4vw, 56px); font-weight: 600; color: var(--white); line-height: 1.1; margin-bottom: 20px; max-width: 700px; }
+    .page-sub { font-size: 17px; color: var(--text-muted); max-width: 620px; line-height: 1.7; }
+    section { padding: 96px 48px; border-bottom: 1px solid var(--border-subtle); }
+    .section-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .section-headline { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 44px); font-weight: 600; color: var(--white); line-height: 1.15; margin-bottom: 20px; max-width: 640px; }
+    .section-sub { font-size: 16px; color: var(--text-muted); max-width: 580px; line-height: 1.7; margin-bottom: 56px; }
+    .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; border: 1px solid var(--border); }
+    .team-card { background: var(--bg-card); padding: 48px 44px; }
+    .team-avatar { width: 52px; height: 52px; border-radius: 50%; background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.3); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600; color: var(--gold); letter-spacing: 0.04em; margin-bottom: 24px; }
+    .team-name { font-size: 20px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+    .team-role { font-size: 13px; color: var(--gold); font-weight: 500; margin-bottom: 4px; letter-spacing: 0.03em; }
+    .team-employers { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+    .team-bio { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
+    .team-creds { display: flex; flex-direction: column; gap: 6px; }
+    .team-cred { font-size: 12px; color: var(--text-dim); display: flex; align-items: center; gap: 8px; }
+    .team-cred::before { content: '·'; color: var(--gold); }
+    .cap-strip { background: #0a0a0a; border-top: 1px solid #2a2a2a; border-bottom: 1px solid #2a2a2a; padding: 64px 48px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+    .cap-strip .section-eyebrow { margin-bottom: 12px; }
+    .cap-strip h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--white); margin-bottom: 12px; }
+    .cap-strip p { color: var(--text-muted); font-size: 15px; max-width: 540px; }
+    .cap-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: #111; font-weight: 600; font-size: 14px; letter-spacing: 0.04em; padding: 14px 28px; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+    .cap-btn:hover { background: var(--gold-light); }
+    footer { padding: 32px 48px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); }
+    .footer-copy { font-size: 12px; color: var(--text-dim); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-badge { font-size: 11px; color: var(--text-dim); letter-spacing: 0.04em; }
+    .footer-badge span { color: var(--gold); }
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; } .nav-links { display: none; }
+      .page-header { padding: 100px 24px 60px; } section { padding: 64px 24px; }
+      .team-grid { grid-template-columns: 1fr; }
+      .cap-strip { flex-direction: column; padding: 48px 24px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Arcline <span>Power</span> Advisory</a>
+  <ul class="nav-links">
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/experience.html">Experience</a></li>
+    <li><a href="/about.html" class="nav-active">About</a></li>
+    <li><a href="/insights.html">Insights</a></li>
+    <li><a href="/contact.html" class="nav-cta">Work With Us</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-eyebrow">Our Team</div>
+  <h1 class="page-headline">Two Texas-Licensed PEs.<br />Thirty Years at Hyperscale.</h1>
+  <p class="page-sub">Arcline was founded by two Professional Engineers licensed in Texas — with direct operating experience inside the world's most demanding data center environments. We don't advise from the outside. We've been in the operations chair.</p>
+</div>
+
+<section id="team">
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">BG</div>
+      <div class="team-name">Bruke Gebryes, P.E.</div>
+      <div class="team-role">Managing Partner</div>
+      <div class="team-employers">Meta · Amazon Web Services · Mott MacDonald</div>
+      <p class="team-bio">12+ years spanning utility-scale substations and global hyperscale data center deployments. Owned protection coordination from 345kV substations down to MCC-level equipment, commissioned 100MW+ campuses, and developed fleet-wide reliability standards at Meta and AWS. Deep background in arc flash analysis, relay setting development, and live-site operational risk.</p>
+      <div class="team-creds">
+        <div class="team-cred">Professional Engineer (P.E.) — Texas</div>
+        <div class="team-cred">M.Eng, Electrical Engineering — WPI</div>
+        <div class="team-cred">SKM PowerTools, ETAP, MATLAB</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">CP</div>
+      <div class="team-name">Chirag S. Parikh, P.E.</div>
+      <div class="team-role">Partner, Technical Lead</div>
+      <div class="team-employers">Microsoft · Amazon Web Services · Black &amp; Veatch</div>
+      <p class="team-bio">18+ years across hyperscale data centers, utility substations, and EPC delivery. Led power harvesting analysis across hundreds of colocation data centers at Microsoft, delivered 100+ data center projects at AWS, and designed protection systems for 30+ utility substations up to 345kV at Black &amp; Veatch. Extensive background in large-program coordination studies and commissioning.</p>
+      <div class="team-creds">
+        <div class="team-cred">Professional Engineer (P.E.) — Texas</div>
+        <div class="team-cred">M.S. Electrical Engineering — UMKC</div>
+        <div class="team-cred">ETAP, SKM PowerTools</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cap-strip">
+  <div>
+    <div class="section-eyebrow">Capability Statement</div>
+    <h2>One page. Everything you need to onboard us.</h2>
+    <p>Download and attach to supplier onboarding, RFQ responses, or vendor registration packets.</p>
+  </div>
+  <a href="/Arcline_Power_Advisory_Capability_Statement.pdf" download class="cap-btn">↓ Download Capability Statement</a>
+</div>
+
+<footer>
+  <div class="footer-copy">© 2026 · Arcline Power Advisory LLC · All rights reserved</div>
+  <div class="footer-badge">Texas Licensed · <span>Minority-Owned</span></div>
+  <div class="footer-links">
+    <a href="mailto:bruke@arclinepoweradvisory.com">Email</a>
+    <a href="https://linkedin.com">LinkedIn</a>
+  </div>
+</footer>
+
+</body>
+</html>
