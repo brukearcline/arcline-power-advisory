@@ -1450,7 +1450,7 @@
     </div>
   </div>
   <div class="contact-right">
-    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <form name="contact" id="contact-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="contact" />
       <div class="form-honeypot">
         <label>Don't fill this out: <input name="bot-field" /></label>
@@ -1492,7 +1492,14 @@
         <label for="message">Message *</label>
         <textarea id="message" name="message" required placeholder="Tell us about your project, timeline, and what you need from us."></textarea>
       </div>
-      <button type="submit" class="form-submit">Submit Inquiry</button>
+      <button type="submit" class="form-submit" id="form-submit-btn">Submit Inquiry</button>
+      <div id="form-success" style="display:none; margin-top:24px; padding:20px 24px; background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); border-radius:3px;">
+        <div style="font-size:15px; font-weight:600; color:var(--gold); margin-bottom:6px;">Message Received</div>
+        <div style="font-size:13px; color:var(--text-muted);">We'll review your inquiry and get back to you within 1–2 business days.</div>
+      </div>
+      <div id="form-error" style="display:none; margin-top:24px; padding:20px 24px; background:rgba(200,50,50,0.08); border:1px solid rgba(200,50,50,0.25); border-radius:3px;">
+        <div style="font-size:13px; color:#e07070;">Something went wrong. Please email us directly at bruke@arclinepoweradvisory.com</div>
+      </div>
     </form>
   </div>
 </section>
@@ -1508,10 +1515,9 @@
 </footer>
 
 <script>
-  // Smooth nav highlight on scroll
+  // Nav highlight on scroll
   const sections = document.querySelectorAll('section[id], div[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
-
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1524,8 +1530,39 @@
       }
     });
   }, { threshold: 0.3 });
-
   sections.forEach(s => observer.observe(s));
+
+  // Form submission via fetch
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('form-submit-btn');
+  const successMsg = document.getElementById('form-success');
+  const errorMsg = document.getElementById('form-error');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    })
+    .then(response => {
+      if (response.ok) {
+        form.reset();
+        submitBtn.style.display = 'none';
+        successMsg.style.display = 'block';
+      } else {
+        throw new Error('Network response was not ok');
+      }
+    })
+    .catch(() => {
+      submitBtn.textContent = 'Submit Inquiry';
+      submitBtn.disabled = false;
+      errorMsg.style.display = 'block';
+    });
+  });
 </script>
 
 </body>
