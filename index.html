@@ -129,7 +129,7 @@
     .case-metric-label { font-size: 12px; color: var(--text-muted); }
 
     /* ── TEAM ── */
-    .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; border: 1px solid var(--border); }
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; border: 1px solid var(--border); }
     .team-card { background: var(--bg-card); padding: 48px 44px; }
     .team-avatar { width: 52px; height: 52px; border-radius: 50%; background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.3); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600; color: var(--gold); letter-spacing: 0.04em; margin-bottom: 24px; }
     .team-name { font-size: 20px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
@@ -457,58 +457,74 @@
   </div>
 </section>
 
-<!-- ── FOUNDER EXPERIENCE ── -->
+<!-- ── OPERATING EXPERIENCE ── -->
 <section id="work">
-  <div class="section-eyebrow">Founder Experience</div>
-  <h2 class="section-headline">The Work Behind the Firm</h2>
-  <p class="section-sub">Arcline is a new firm. The experience is not. The projects below represent work our founders led in prior roles at Meta, AWS, and Microsoft — the basis for the judgment we bring to every engagement.</p>
+  <div class="section-eyebrow">Operating Experience</div>
+  <h2 class="section-headline">Senior Judgment Across the Full Power Infrastructure Lifecycle</h2>
+  <p class="section-sub">Arcline brings together hyperscale owner-side perspective, EPC execution depth, and utility-grade power systems rigor. Our team has delivered, reviewed, operated, and optimized critical power infrastructure from the utility interconnection to the data hall — across AI/GPU deployments, colocation fleets, utility substations, protection studies, commissioning programs, and live-site reliability work.</p>
   <div class="cases-grid">
     <div class="case-card">
       <div>
         <div class="case-meta">
-          <span class="case-type">Protection Coordination</span>
+          <span class="case-type">Hyperscale Owner-Side Perspective</span>
           <span class="case-dot">·</span>
-          <span class="case-location">Pacific Northwest</span>
+          <span class="case-location">AI / Data Center Infrastructure</span>
         </div>
-        <div class="case-title">345kV Substation Protection Study for 120MW Hyperscale Campus</div>
-        <p class="case-desc">Led end-to-end protection coordination study for a new utility-owned 345kV substation serving a major hyperscale operator's flagship campus. Developed relay settings from transmission level through 34.5kV feeders to MV switchgear and generator protection. Coordinated with the serving utility's protection engineers to validate settings against NERC compliance requirements.</p>
+        <div class="case-title">Built for Decisions Where Capacity, Reliability, and Operational Risk Intersect</div>
+        <p class="case-desc">Our team has worked inside hyperscale environments where electrical decisions are measured by uptime, deployable capacity, safety, commissioning readiness, and long-term operational risk. That experience shapes how we review SKM/ETAP models, protection settings, arc flash assumptions, GPU capacity constraints, live-site cutovers, and post-event corrective actions.</p>
       </div>
       <div class="case-metrics">
-        <div class="case-metric"><div class="case-metric-num">Zero</div><div class="case-metric-label">Protection miscoordinations at energization</div></div>
-        <div class="case-metric"><div class="case-metric-num">345kV</div><div class="case-metric-label">Max system voltage coordinated</div></div>
-        <div class="case-metric"><div class="case-metric-num">120MW</div><div class="case-metric-label">Campus load served</div></div>
+        <div class="case-metric"><div class="case-metric-num">AI</div><div class="case-metric-label">GPU and high-density compute infrastructure</div></div>
+        <div class="case-metric"><div class="case-metric-num">Fleet</div><div class="case-metric-label">Multi-campus reliability and arc flash programs</div></div>
+        <div class="case-metric"><div class="case-metric-num">Live</div><div class="case-metric-label">Operational risk and field issue resolution</div></div>
       </div>
     </div>
     <div class="case-card">
       <div>
         <div class="case-meta">
-          <span class="case-type">Commissioning Advisory</span>
+          <span class="case-type">EPC &amp; Design Execution</span>
           <span class="case-dot">·</span>
-          <span class="case-location">Northern Virginia</span>
+          <span class="case-location">Concept Through Energization</span>
         </div>
-        <div class="case-title">Live-Site Expansion at 48MW Colocation Retrofit</div>
-        <p class="case-desc">Owner-side technical lead for a major capacity expansion — adding 48MW of critical load without disrupting 200MW of live infrastructure. Identified and resolved a protection gap in the tie-bus configuration that would have caused a site-wide outage during load transfer.</p>
+        <div class="case-title">Engineering Judgment Grounded in Deliverables That Actually Get Built</div>
+        <p class="case-desc">Arcline's team has produced and reviewed the engineering packages that drive real infrastructure delivery: one-lines, equipment specifications, relay settings, grounding studies, protection schemes, RFPs, construction packages, commissioning documents, and vendor submittals. We know where design intent gets lost between drawings, procurement, construction, testing, and operations.</p>
       </div>
       <div class="case-metrics">
-        <div class="case-metric"><div class="case-metric-num">Zero</div><div class="case-metric-label">Unplanned outages during expansion</div></div>
-        <div class="case-metric"><div class="case-metric-num">48MW</div><div class="case-metric-label">New critical load energized</div></div>
-        <div class="case-metric"><div class="case-metric-num">200MW</div><div class="case-metric-label">Live infrastructure protected</div></div>
+        <div class="case-metric"><div class="case-metric-num">EPC</div><div class="case-metric-label">Scope, bid, design, and construction support</div></div>
+        <div class="case-metric"><div class="case-metric-num">QA</div><div class="case-metric-label">Design package and study quality review</div></div>
+        <div class="case-metric"><div class="case-metric-num">Cx</div><div class="case-metric-label">Commissioning and energization readiness</div></div>
       </div>
     </div>
     <div class="case-card">
       <div>
         <div class="case-meta">
-          <span class="case-type">Reliability Engineering</span>
+          <span class="case-type">Utility &amp; Substation Rigor</span>
           <span class="case-dot">·</span>
-          <span class="case-location">Global Fleet</span>
+          <span class="case-location">EHV / HV / MV Systems</span>
         </div>
-        <div class="case-title">Fleet-Wide Arc Flash &amp; Reliability Program — 18 Campuses</div>
-        <p class="case-desc">Developed and led a fleet-wide arc flash and reliability program across 18 data center campuses globally. Established a condition-based maintenance program driven by PD trending data, reducing arc flash incident energy exposure through targeted relay setting adjustments and a unified fleet standard.</p>
+        <div class="case-title">Utility-Grade Power Systems Depth for Data Center-Scale Loads</div>
+        <p class="case-desc">AI-scale data centers increasingly depend on utility-grade engineering: high-voltage substations, large-load interconnections, transformer capacity, protection and control, grounding, insulation coordination, short-circuit duty, and transmission-level coordination. Arcline brings that substation and grid-interface discipline into the data center environment.</p>
       </div>
       <div class="case-metrics">
-        <div class="case-metric"><div class="case-metric-num">18</div><div class="case-metric-label">Campuses covered globally</div></div>
-        <div class="case-metric"><div class="case-metric-num">34%</div><div class="case-metric-label">Avg. incident energy reduction</div></div>
-        <div class="case-metric"><div class="case-metric-num">1</div><div class="case-metric-label">Unified fleet standard created</div></div>
+        <div class="case-metric"><div class="case-metric-num">345kV</div><div class="case-metric-label">High-voltage substation experience</div></div>
+        <div class="case-metric"><div class="case-metric-num">P&amp;C</div><div class="case-metric-label">Protection, control, and relay settings</div></div>
+        <div class="case-metric"><div class="case-metric-num">Grid</div><div class="case-metric-label">Utility coordination and interconnection review</div></div>
+      </div>
+    </div>
+    <div class="case-card">
+      <div>
+        <div class="case-meta">
+          <span class="case-type">Independent Risk Review</span>
+          <span class="case-dot">·</span>
+          <span class="case-location">Where Problems Hide</span>
+        </div>
+        <div class="case-title">We Focus on the Gaps Between the Model, the Field, and the Operating Reality</div>
+        <p class="case-desc">Data center power risk rarely lives in one drawing, one relay file, or one arc flash report. It lives in the gaps between utility assumptions, equipment ratings, operating modes, construction sequencing, commissioning constraints, protection settings, and real-world operating behavior. Arcline exists to close those gaps before they become failed energizations, unsafe assumptions, delayed schedules, or costly rework.</p>
+      </div>
+      <div class="case-metrics">
+        <div class="case-metric"><div class="case-metric-num">Risk</div><div class="case-metric-label">Protection, arc flash, and commissioning exposure</div></div>
+        <div class="case-metric"><div class="case-metric-num">Ops</div><div class="case-metric-label">Operating modes and real-world system behavior</div></div>
+        <div class="case-metric"><div class="case-metric-num">Action</div><div class="case-metric-label">Prioritized findings and corrective actions</div></div>
       </div>
     </div>
   </div>
@@ -520,8 +536,8 @@
 <!-- ── ABOUT ── -->
 <section id="about">
   <div class="section-eyebrow">Our Team</div>
-  <h2 class="section-headline">Two Texas-Licensed PEs.<br />Thirty Years at Hyperscale.</h2>
-  <p class="section-sub">Arcline was founded by two Professional Engineers licensed in Texas — with direct operating experience inside the world's most demanding data center environments. We don't advise from the outside. We've been in the operations chair.</p>
+  <h2 class="section-headline">A Senior Team Built for Hyperscale, Utility, and Mission-Critical Power.</h2>
+  <p class="section-sub">Arcline is led by Texas-licensed Professional Engineers with experience across hyperscale operators, cloud infrastructure owners, EPC delivery, utility substations, and mission-critical power systems. We bring owner-side judgment, design execution depth, and field-aware technical review to high-stakes electrical infrastructure decisions.</p>
   <div class="team-grid">
     <div class="team-card">
       <div class="team-avatar">BG</div>
@@ -543,8 +559,20 @@
       <p class="team-bio">18+ years across hyperscale data centers, utility substations, and EPC delivery. Led power harvesting analysis across hundreds of colocation data centers at Microsoft, delivered 100+ data center projects at AWS, and designed protection systems for 30+ utility substations up to 345kV at Black &amp; Veatch. Extensive background in large-program coordination studies and commissioning.</p>
       <div class="team-creds">
         <div class="team-cred">Professional Engineer (P.E.) — Texas</div>
-        <div class="team-cred">M.S. Electrical Engineering — UMKC</div>
-        <div class="team-cred">ETAP, SKM PowerTools</div>
+        <div class="team-cred">M.S.E., Electrical Engineering — Arizona State University</div>
+        <div class="team-cred">EHV/HV/MV substations, P&amp;C, EPC delivery</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">AP</div>
+      <div class="team-name">Ajith M. Poduval, P.E.</div>
+      <div class="team-role">Principal Advisor</div>
+      <div class="team-employers">Amazon Web Services · Black &amp; Veatch · Mott MacDonald</div>
+      <p class="team-bio">Nearly 15 years across utility-scale and mission-critical power infrastructure, including HV/MV substations, data center electrical infrastructure, protection and control, EPC planning, construction support, commissioning, renewable generation, and BESS. Brings deep project execution experience across concept development, RFPs, contractor evaluation, design review, and field issue resolution for large-scale cloud and generative AI infrastructure.</p>
+      <div class="team-creds">
+        <div class="team-cred">Professional Engineer (P.E.) — Texas</div>
+        <div class="team-cred">M.S.E., Electrical Engineering — Arizona State University</div>
+        <div class="team-cred">EHV/HV/MV substations, P&amp;C, EPC delivery</div>
       </div>
     </div>
   </div>
